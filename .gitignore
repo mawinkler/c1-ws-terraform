@@ -1,0 +1,3 @@
+deploy-dsa/terraform.tfstate
+.terraform*
+deploy-dsa/public-ip
