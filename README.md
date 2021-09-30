@@ -9,11 +9,11 @@
 
 This folder does contain some scripts to ease a Workload Security deployments with the use of Terraform.
 
-The folder `deploy-dsa` contains Terraform scripts, which create an EC2 instance, deploys a DSA which activates against your Workload Security instance and reports the public IP of the created instance.
+The folders `deploy-dsa-aws` and `deploy-dsa-azure` contains Terraform scripts, which create a  virtual instance either on AWS or Azure and deploys a DSA which activates against your Workload Security instance.
 
-Befor running it, adapt the last line of the script `files/deploy_dsa.sh` with your Tenant ID and Token. Additionally, replace the file `eu-west-2-ssh.pem` with your `.pem`-file containing the private key to access the EC2 instance.
+Before running it, adapt the last line of the script `files/deploy_dsa.sh` with your Tenant ID and Token. Additionally required for AWS, replace the file `eu-west-2-ssh.pem` with your `.pem`-file containing the private key to access the EC2 instance.
 
-This example uses the region `eu-west-2` (London).
+This example uses the region `eu-west-2` (London) on AWS and `eastus` on Azure.
 
 Then run
 
