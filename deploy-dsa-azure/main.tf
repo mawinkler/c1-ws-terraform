@@ -46,7 +46,8 @@ resource "azurerm_public_ip" "myterraformpublicip" {
   name                = "myPublicIP"
   location            = "eastus"
   resource_group_name = azurerm_resource_group.myterraformgroup.name
-  allocation_method   = "Dynamic"
+  # allocation_method   = "Dynamic"
+  allocation_method = "Static"
 
   tags = {
     environment = "Terraform Demo"
@@ -170,6 +171,12 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
   tags = {
     environment = "Terraform Demo"
   }
+}
+
+data "azurerm_public_ip" "test" {
+  name                = azurerm_public_ip.myterraformpublicip.name
+  resource_group_name = azurerm_resource_group.myterraformgroup.name
+  depends_on          = [azurerm_linux_virtual_machine.myterraformvm]
 }
 
 resource "null_resource" "myterraformvm" {
